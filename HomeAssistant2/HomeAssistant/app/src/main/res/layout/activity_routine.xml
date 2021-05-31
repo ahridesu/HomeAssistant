@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.DeviceActivity">
+
+    <EditText
+        android:id="@+id/Spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_margin="16dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Name"
+        android:background="@android:drawable/editbox_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <Spinner
+        android:id="@+id/devices_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="24dp"
+        android:layout_margin="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Spinner" />
+
+    <EditText
+        android:id="@+id/bdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:background="@android:drawable/editbox_background"
+        android:hint="Begin Date Ex: 12/3/2021 "
+        android:inputType="textPersonName"
+        android:padding="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/devices_spinner" />
+    <EditText
+        android:id="@+id/edate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:background="@android:drawable/editbox_background"
+        android:hint="Finish Date Ex: 12/3/2021 "
+        android:inputType="textPersonName"
+        android:padding="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bdate" />
+
+
+    <EditText
+        android:id="@+id/btime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:background="@android:drawable/editbox_background"
+        android:hint="Time Ex: 13:08"
+        android:inputType="textPersonName"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/Spinner"
+        app:layout_constraintStart_toEndOf="@+id/bdate"
+        app:layout_constraintTop_toBottomOf="@id/devices_spinner" />
+
+    <EditText
+        android:id="@+id/etime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:background="@android:drawable/editbox_background"
+        android:hint="Time Ex: 13:08"
+        android:inputType="textPersonName"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/Spinner"
+        app:layout_constraintStart_toEndOf="@+id/edate"
+        app:layout_constraintTop_toBottomOf="@id/bdate" />
+    <Button
+        android:id="@+id/button_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add"
+        android:layout_margin="16dp"
+        app:layout_constraintStart_toStartOf="@+id/Spinner"
+        app:layout_constraintTop_toBottomOf="@+id/edate" />
+
+    <Button
+        android:id="@+id/button_reset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reset"
+        android:layout_margin="16dp"
+
+        app:layout_constraintEnd_toEndOf="@+id/Spinner"
+        app:layout_constraintTop_toBottomOf="@+id/edate" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/entityrv"
+        android:layout_width="409dp"
+        android:layout_height="605dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        tools:listitem="@layout/rv_item"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_add" />
+
+    <com.dpro.widgets.WeekdaysPicker
+        android:id="@+id/weekdays"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:sunday_first_day="false" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
