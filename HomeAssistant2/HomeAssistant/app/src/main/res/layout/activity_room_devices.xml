@@ -31,73 +31,79 @@
         android:id="@+id/button_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add"
         android:layout_margin="16dp"
-        app:layout_constraintStart_toStartOf="@+id/Spinner"
+        android:text="Add"
+        app:layout_constraintBottom_toTopOf="@+id/airtext"
+        app:layout_constraintEnd_toEndOf="@+id/Spinner"
         app:layout_constraintTop_toBottomOf="@+id/Spinner" />
 
     <Button
         android:id="@+id/button_reset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Reset"
         android:layout_margin="16dp"
+        android:text="Reset"
 
-        app:layout_constraintEnd_toEndOf="@+id/Spinner"
+        app:layout_constraintBottom_toTopOf="@+id/airtext"
+        app:layout_constraintStart_toStartOf="@+id/Spinner"
         app:layout_constraintTop_toBottomOf="@+id/Spinner" />
-<TextView
-    android:id="@+id/airtext"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Air Conditioning Temp"
-    android:textSize="24dp"
-    android:padding="10dp"
-    app:layout_constraintStart_toStartOf="@id/button_add"
-    app:layout_constraintTop_toBottomOf="@+id/button_add"
-    ></TextView>
+
+    <TextView
+        android:id="@+id/airtext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="Air Conditioning Temp"
+        android:textSize="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/slider"
+        app:layout_constraintTop_toBottomOf="@+id/Spinner"
+        app:layout_constraintVertical_bias="0.646"
+        tools:layout_editor_absoluteX="77dp"></TextView>
+
     <TextView
         android:id="@+id/temp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:padding="10dp"
         android:text="Cold"
         android:textSize="24dp"
-        android:padding="10dp"
-        app:layout_constraintStart_toStartOf="@id/button_add"
-        app:layout_constraintTop_toBottomOf="@+id/airtext"/>
+        app:layout_constraintStart_toStartOf="@+id/button_reset"
+        app:layout_constraintTop_toBottomOf="@+id/button_reset" />
 
     <TextView
         android:id="@+id/cold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:padding="10dp"
         android:text="Hot"
         android:textSize="24dp"
-        android:padding="10dp"
-        app:layout_constraintEnd_toEndOf="@id/button_reset"
-        app:layout_constraintTop_toBottomOf="@+id/airtext"
-        >
+        app:layout_constraintEnd_toEndOf="@+id/button_add"
+        app:layout_constraintTop_toBottomOf="@+id/button_add">
 
     </TextView>
+
     <com.google.android.material.slider.Slider
         android:id="@+id/slider"
-        android:valueFrom="17"
-        android:valueTo="32"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="@id/cold"
-        app:layout_constraintStart_toStartOf="@id/button_add"
-        app:layout_constraintTop_toBottomOf="@+id/temp"
-        >
+        android:valueFrom="17"
+        android:valueTo="32"
+        app:layout_constraintBottom_toTopOf="@+id/entityrv"
+        app:layout_constraintEnd_toEndOf="@+id/cold"
+        app:layout_constraintStart_toStartOf="@+id/temp">
 
     </com.google.android.material.slider.Slider>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/entityrv"
         android:layout_width="409dp"
         android:layout_height="605dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        tools:listitem="@layout/rv_room_device_item"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/slider" />
+        tools:layout_editor_absoluteY="375dp"
+        tools:listitem="@layout/rv_room_device_item" />
 </androidx.constraintlayout.widget.ConstraintLayout>
