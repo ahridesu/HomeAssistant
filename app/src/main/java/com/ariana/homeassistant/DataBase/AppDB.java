@@ -10,7 +10,7 @@ import com.ariana.homeassistant.model.Placement;
 import com.ariana.homeassistant.model.Room;
 import com.ariana.homeassistant.model.Routine;
 
-@Database(entities = {Room.class , Routine.class , Device.class , Placement.class},version = 1,exportSchema = false)
+@Database(entities = {Room.class , Routine.class , Device.class , Placement.class},version = 2,exportSchema = false)
 public abstract class AppDB extends RoomDatabase {
 
     private static AppDB database;

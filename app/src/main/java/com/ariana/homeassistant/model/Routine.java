@@ -4,6 +4,8 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.util.List;
+
 @Entity(tableName = "routines")
 public class Routine {
 
@@ -26,6 +28,8 @@ public class Routine {
         Name = name;
     }
 
+
+
     @ColumnInfo(name = "Name")
     String Name;
 
@@ -40,6 +44,9 @@ public class Routine {
 
     @ColumnInfo(name = "device")
     String device;
+
+    @ColumnInfo(name = "days")
+    String days;
 
     public String getDevice() {
         return device;
@@ -79,6 +86,14 @@ public class Routine {
 
     public void setEtime(String etime) {
         this.etime = etime;
+    }
+
+    public void setDays(String days) {
+        this.days = days;
+    }
+
+    public String getDays() {
+        return days;
     }
 
     @ColumnInfo(name = "etime")
