@@ -12,6 +12,7 @@ import android.widget.EditText;
 import com.ariana.homeassistant.Adapters.RoomsRVAdapter;
 import com.ariana.homeassistant.DataBase.AppDB;
 import com.ariana.homeassistant.R;
+import com.ariana.homeassistant.model.Placement;
 import com.ariana.homeassistant.model.Room;
 
 import java.util.ArrayList;

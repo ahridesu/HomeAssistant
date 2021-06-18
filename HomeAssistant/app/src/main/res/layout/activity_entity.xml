@@ -24,19 +24,21 @@
         android:id="@+id/button_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add"
         android:layout_margin="16dp"
-        app:layout_constraintStart_toStartOf="@+id/Spinner"
+        android:layout_marginTop="16dp"
+        android:text="Add"
+        app:layout_constraintEnd_toEndOf="@+id/Spinner"
         app:layout_constraintTop_toBottomOf="@+id/Spinner" />
 
     <Button
         android:id="@+id/button_reset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Reset"
         android:layout_margin="16dp"
+        android:layout_marginTop="16dp"
 
-        app:layout_constraintEnd_toEndOf="@+id/Spinner"
+        android:text="Reset"
+        app:layout_constraintStart_toStartOf="@+id/Spinner"
         app:layout_constraintTop_toBottomOf="@+id/Spinner" />
 
     <androidx.recyclerview.widget.RecyclerView

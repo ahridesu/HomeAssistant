@@ -35,7 +35,7 @@ public class RoutinesRVAdapter extends RecyclerView.Adapter<RoutinesRVAdapter.Vi
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.rv_device_item, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.rv_routine_item, parent, false);
         return new ViewHolder(v);
     }
 
@@ -44,9 +44,11 @@ public class RoutinesRVAdapter extends RecyclerView.Adapter<RoutinesRVAdapter.Vi
         Routine data = (Routine) dataList.get(position);
         database = AppDB.getInstance(context);
 
-        holder.textView.setText(data.getName() + "\n" + "Starts From: "+data.getBdate() + "\nAt: " + data.getBtime() +
-                "\n" + "Ends On: "+data.getEdate() + "\nAt: " + data.getEtime()+
+        holder.textView.setText(data.getName() + "\n" + "Week days: "+data.getDays() + "\nAt: " + data.getBtime() +
+                "\n" + "\nAt: " + data.getEtime()+
                 "\n" + "Device: "+data.getDevice()  );
+
+        holder.DeviceName.setText("Device: "+data.getDevice());
         holder.btEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -104,7 +106,7 @@ public class RoutinesRVAdapter extends RecyclerView.Adapter<RoutinesRVAdapter.Vi
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView textView;
+        TextView textView , DeviceName;
         ImageView btEdit, btDelete;
 
         public ViewHolder(View itemView) {
@@ -113,6 +115,7 @@ public class RoutinesRVAdapter extends RecyclerView.Adapter<RoutinesRVAdapter.Vi
             textView = itemView.findViewById(R.id.rv_text);
             btEdit = itemView.findViewById(R.id.rv_edit);
             btDelete = itemView.findViewById(R.id.rv_delete);
+            DeviceName = itemView.findViewById(R.id.DeviceName);
         }
     }
 }

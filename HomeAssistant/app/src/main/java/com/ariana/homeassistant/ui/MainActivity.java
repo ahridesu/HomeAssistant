@@ -45,7 +45,6 @@ public class MainActivity extends AppCompatActivity implements RoomDialogue.Room
         FloatingActionButton routines_fab = findViewById(R.id.routines_fab);
         FloatingActionButton device_fab = findViewById(R.id.devices_fab);
         database = AppDB.getInstance(this);
-
        /* Placement placement = new Placement();
         placement.setDeviceId(2);
         placement.setRoomId(1);

@@ -4,108 +4,115 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTintMode="add"
     tools:context=".ui.DeviceActivity">
 
     <EditText
         android:id="@+id/Spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
         android:layout_margin="16dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Name"
+        android:layout_marginTop="16dp"
         android:background="@android:drawable/editbox_background"
+        android:ems="10"
+        android:hint="Name"
+        android:inputType="textPersonName"
+        android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+
     <Spinner
         android:id="@+id/devices_spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="24dp"
         android:layout_margin="16dp"
+        android:layout_marginTop="36dp"
+
+        android:backgroundTint="#ACA7A7"
+        android:padding="24dp"
+        android:radius="6dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/Spinner" />
 
-    <EditText
-        android:id="@+id/bdate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:background="@android:drawable/editbox_background"
-        android:hint="Begin Date Ex: 12/3/2021 "
-        android:inputType="textPersonName"
-        android:padding="10dp"
+    <com.dpro.widgets.WeekdaysPicker
+        android:id="@+id/weekdays"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:highlight_color="#3F51B5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/devices_spinner" />
-    <EditText
-        android:id="@+id/edate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:background="@android:drawable/editbox_background"
-        android:hint="Finish Date Ex: 12/3/2021 "
-        android:inputType="textPersonName"
-        android:padding="10dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/bdate" />
 
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-    <EditText
+    <TextView
         android:id="@+id/btime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
         android:layout_margin="16dp"
         android:background="@android:drawable/editbox_background"
-        android:hint="Time Ex: 13:08"
-        android:inputType="textPersonName"
+        android:hint="start time"
         android:padding="10dp"
-        app:layout_constraintEnd_toEndOf="@+id/Spinner"
-        app:layout_constraintStart_toEndOf="@+id/bdate"
-        app:layout_constraintTop_toBottomOf="@id/devices_spinner" />
+        app:layout_constraintStart_toStartOf="@+id/weekdays"
+        app:layout_constraintTop_toBottomOf="@+id/weekdays" />
 
-    <EditText
+    <TextView
         android:id="@+id/etime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
         android:layout_margin="16dp"
+        android:layout_marginEnd="16dp"
         android:background="@android:drawable/editbox_background"
-        android:hint="Time Ex: 13:08"
-        android:inputType="textPersonName"
+        android:hint="finish time"
         android:padding="10dp"
-        app:layout_constraintEnd_toEndOf="@+id/Spinner"
-        app:layout_constraintStart_toEndOf="@+id/edate"
-        app:layout_constraintTop_toBottomOf="@id/bdate" />
+        app:layout_constraintEnd_toEndOf="@+id/weekdays"
+        app:layout_constraintTop_toBottomOf="@+id/weekdays" />
+
     <Button
         android:id="@+id/button_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add"
         android:layout_margin="16dp"
-        app:layout_constraintStart_toStartOf="@+id/Spinner"
-        app:layout_constraintTop_toBottomOf="@+id/edate" />
+        android:layout_marginTop="37dp"
+        android:text="Add"
+        app:layout_constraintEnd_toEndOf="@+id/etime"
+        app:layout_constraintTop_toBottomOf="@+id/etime" />
 
     <Button
         android:id="@+id/button_reset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Reset"
         android:layout_margin="16dp"
 
-        app:layout_constraintEnd_toEndOf="@+id/Spinner"
-        app:layout_constraintTop_toBottomOf="@+id/edate" />
+        android:layout_marginTop="28dp"
+        android:text="Reset"
+        app:layout_constraintBottom_toTopOf="@+id/entityrv"
+        app:layout_constraintStart_toStartOf="@+id/btime"
+        app:layout_constraintTop_toBottomOf="@+id/btime"
+        app:layout_constraintVertical_bias="0.0" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/entityrv"
         android:layout_width="409dp"
         android:layout_height="605dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="16dp"
-        tools:listitem="@layout/rv_item"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.466"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_add"
+        tools:listitem="@layout/rv_item" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select weekdays of routine(red=selected))"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_add" />
+        app:layout_constraintTop_toBottomOf="@+id/devices_spinner" />
 </androidx.constraintlayout.widget.ConstraintLayout>
