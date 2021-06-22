@@ -40,6 +40,7 @@ public class RoutinesActivity extends AppCompatActivity {
     RoutinesRVAdapter deviceRvAdapter;
     TextView btime, etime;
     int t1h,t1min,t2h,t2min;
+    String init, end;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,16 +66,13 @@ public class RoutinesActivity extends AppCompatActivity {
                             public void onTimeSet(TimePicker view, int hourOfDay, int minute){
                                 t1h = hourOfDay;
                                 t1min = minute;
-                                String time = t1h +":"+t1min;
+                                init = Integer.toString(t1h) +":"+Integer.toString(t1min);
                                 SimpleDateFormat f24Hours = new SimpleDateFormat(
                                         "HH:mm"
                                 );
                                 try {
-                                    Date date = f24Hours.parse(time);
-                                    SimpleDateFormat f12Hours = new SimpleDateFormat(
-                                            "hh:mm aa"
-                                    );
-                                    btime.setText(f12Hours.format(date));
+                                    Date date = f24Hours.parse(init);
+                                    btime.setText(f24Hours.format(date) );
                                 }catch (ParseException e){
                                     e.printStackTrace();
                                 }
@@ -96,16 +94,14 @@ public class RoutinesActivity extends AppCompatActivity {
                             public void onTimeSet(TimePicker view, int hourOfDay, int minute){
                                 t2h = hourOfDay;
                                 t2min = minute;
-                                String time = t2h +":"+t2min;
+                                end = Integer.toString(t2h) +":"+Integer.toString(t2min);
                                 SimpleDateFormat f24Hours = new SimpleDateFormat(
                                         "HH:mm"
                                 );
                                 try {
-                                    Date date = f24Hours.parse(time);
-                                    SimpleDateFormat f12Hours = new SimpleDateFormat(
-                                            "hh:mm aa"
-                                    );
-                                    btime.setText(f12Hours.format(date));
+                                    Date date = f24Hours.parse(end);
+                                    etime.setText(f24Hours.format(date) );
+
                                 }catch (ParseException e){
                                     e.printStackTrace();
                                 }
@@ -116,8 +112,8 @@ public class RoutinesActivity extends AppCompatActivity {
                 timePickerDialog.show();
             }
         });
-        String start = Integer.toString(t1h) +":"+Integer.toString(t1min);
-        String finish = Integer.toString(t2h) +":"+Integer.toString(t2min);
+        //String start = Integer.toString(t1h) +":"+Integer.toString(t1min);
+        //String finish = Integer.toString(t2h) +":"+Integer.toString(t2min);
 
 
         Button addButton = findViewById(R.id.button_add);
@@ -164,8 +160,8 @@ public class RoutinesActivity extends AppCompatActivity {
                     weekdays += s+",";
                 }
 
-                String sBTime = start;
-                String sETime = finish;
+                String sBTime = init;
+                String sETime = end;
                 String DeviceName = spinner.getSelectedItem().toString();
 
                 if(!sName.equals("") && /*!sBdate.equals("") &&

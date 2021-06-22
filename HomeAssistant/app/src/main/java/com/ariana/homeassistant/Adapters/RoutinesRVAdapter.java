@@ -44,9 +44,9 @@ public class RoutinesRVAdapter extends RecyclerView.Adapter<RoutinesRVAdapter.Vi
         Routine data = (Routine) dataList.get(position);
         database = AppDB.getInstance(context);
 
-        holder.textView.setText(data.getName() + "\n" + "Week days: "+data.getDays() + "\nAt: " + data.getBtime() +
-                "\n" + "\nAt: " + data.getEtime()+
-                "\n" + "Device: "+data.getDevice()  );
+        holder.textView.setText(data.getName() + "\n" + "Week days: "+data.getDays() + "\nStart: " + data.getBtime() +
+                "\n" + "\nEnd: " + data.getEtime()+
+                "\n"  );
 
         holder.DeviceName.setText("Device: "+data.getDevice());
         holder.btEdit.setOnClickListener(new View.OnClickListener() {
